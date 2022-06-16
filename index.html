@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WHAC-A-MOLE</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body class="bodyClass">
+
+
+    
+
+    <div class="gameArea">
+        <h1 class="gameText marginTop--32px">WHAC-A-MOLE</h1>
+
+        <div id = "config">
+            <form id = "form">
+                <label for="rows">Rows:</label>
+                <input type="number" id="rnum" name="rnum"><br><br>
+                <label for="columns">Columns:</label>
+                <input type="number" id="cnum" name="cnum"><br><br>
+                <input type="submit" value="Start Game">
+              </form>
+        </div>
+
+        <div id ="gameScreen" class = "hideDisplay">
+            <h3 class="gameText marginTop--32px">SCORE - <span id = "currentScore" class="score">0</span></h3>
+            <h3 class="gameText marginTop--32px">HIGHSCORE - <span class="score">12</span> </h3>
+            <table id = "dirtGrid" class="marginTop--32px">
+                <!-- <tr>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                </tr>
+                <tr>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                    <td class = "cell">
+                        <img class = "mole" src="assets/mole.svg">
+                        <img class="dirtImage" src="assets/dirt.svg">
+                    </td>
+                </tr> -->
+            </table>
+        </div>
+
+        
+
+        <div id = "gameOver" class = "hideDisplay">
+            Game Over!
+            <div id = "start">
+                <button id ="startButton"><span class="gameText">Start Over</span></button>
+            </div>
+        </div>
+    </div>
+
+    
+
+	<script src="main.js"></script>
+
+  </body>
+</html>
