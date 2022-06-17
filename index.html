@@ -6,67 +6,57 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WHAC-A-MOLE</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body class="bodyClass">
 
-
-    
-
     <div class="gameArea">
-        <h1 class="gameText marginTop--32px">WHAC-A-MOLE</h1>
+        <h1 class="gameText marginTop--32px fontSize--75px">WHAC-A-MOLE</h1>
 
-        <div id = "config">
-            <form id = "form">
+        <div id = "config" class = " marginTop--32px ">
+            <form class = "alignment--center" id = "form">
                 <label for="rows">Rows:</label>
                 <input type="number" id="rnum" name="rnum"><br><br>
                 <label for="columns">Columns:</label>
                 <input type="number" id="cnum" name="cnum"><br><br>
-                <input type="submit" value="Start Game">
-              </form>
+                <label for="level">Level:</label>
+                <input type="number" id="level" name="level"><br><br>
+                <div class = "start">
+                    <input class="gameText gameButton"type="submit" value="Start Game">
+                </div>
+            </form>
         </div>
 
         <div id ="gameScreen" class = "hideDisplay">
-            <h3 class="gameText marginTop--32px">SCORE - <span id = "currentScore" class="score">0</span></h3>
-            <h3 class="gameText marginTop--32px">HIGHSCORE - <span class="score">12</span> </h3>
-            <table id = "dirtGrid" class="marginTop--32px">
-                <!-- <tr>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                </tr>
-                <tr>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                    <td class = "cell">
-                        <img class = "mole" src="assets/mole.svg">
-                        <img class="dirtImage" src="assets/dirt.svg">
-                    </td>
-                </tr> -->
-            </table>
+            <h3 class="gameText marginTop--32px fontSize--50px">SCORE - <span id = "currentScore" class="score">0</span></h3>
+            <!-- <h3 class="gameText marginTop--32px fontSize--50px">HIGHSCORE - <span class="score">12</span> </h3> -->
+            <div class ="alignment--center">
+                <table id = "dirtGrid" class="marginTop--32px alignment--center">
+                
+                </table>
+            </div>
+            
         </div>
 
         
 
-        <div id = "gameOver" class = "hideDisplay">
-            Game Over!
-            <div id = "start">
-                <button id ="startButton"><span class="gameText">Start Over</span></button>
+        <div id = "gameOver" class = "hideDisplay alignment--center marginTop--32px">
+            <h3>
+                <strong> Game Over! </strong>     
+            </h3>
+            <div class="topScoreDialog gameText ">
+                <h3 class="fontSize--50px marginTop--32px">Top 5 Scores</h3>
+                <div class="topScores">
+                    
+                </div>
+
+                <div >
+                    <button class="gameButton marginTop--32px " id ="startButton"><span class="gameText">Start Over</span></button>
+                </div>
             </div>
+            
         </div>
     </div>
 

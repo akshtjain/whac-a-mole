@@ -1,8 +1,14 @@
 var moles = document.querySelectorAll('.mole');
-var score = 0;
+let score = 0;
 var moleHit = false;
 var isGameActive =false;
 var isConfigset = false;
+let level = 1;
+let currentMoleTime;
+
+let topScores = [];
+
+const body = document.getElementsByClassName('bodyClass');
 
 
 function gameOver(){
@@ -11,6 +17,26 @@ function gameOver(){
 
     document.getElementById("gameScreen").classList.add("hideDisplay");
     document.getElementById("gameOver").classList.remove("hideDisplay");
+
+    topScores.push(score);
+    topScores.sort(function (a,b) {
+        return b - a; // Descending
+    });
+    topScores.slice(0,5);
+    let topScoreElement = document.getElementsByClassName("topScores")[0];
+    topScoreElement.textContent = '';
+    for(let i =0; i<5 && i<topScores.length; i++){
+
+        const score = document.createElement('div');
+        score.textContent = topScores[i];
+        topScoreElement.appendChild(score);
+        score.classList.add('score');
+        score.classList.add('fontSize--30px');
+        score.classList.add('margin--32px');
+    }
+    score = 0;
+    updateScore();
+
 }
 
 function popmole(){
@@ -21,40 +47,43 @@ function popmole(){
     moles[rand].classList.add('moleUp');
     moleHit = false;
 
-    setTimeout(()=>{
+    currentMoleTime =  setTimeout(()=>{
         moles[rand].classList.remove('moleUp');
         if(moleHit === false){
             isGameOver = true;
-            console.log("scoreee" + score);
             gameOver()
-            // call game over 
-
-        }else{
-            popmole();
         }
-    }, 1000);
+    }, 2000/level);
 
 }
 
+
 function updateScore(){
-    score++;
-    moleHit = true;
-    console.log("score" + score);
     const scoreObject = document.getElementById('currentScore');
     scoreObject.textContent = score;
+}
+
+function whack(){
+    score++;
+    moleHit = true;
+    body[0].style.background = 'red';
+    setTimeout(()=>{
+        body[0].style.background = '#00cc66';
+    },100);
+    updateScore();
+    clearTimeout(currentMoleTime);
+    document.getElementsByClassName('moleUp')[0].classList.remove('moleUp');
+    popmole();
+
 }
 
 function startGame(){
 
     var row=document.getElementById("rnum").value;
     var col=document.getElementById("cnum").value;
+    level = document.getElementById("level").value;
 
-    console.log(row, col);
-    
-    // create grid 
-    
     let table = document.getElementById('dirtGrid');
-
     
     for(var i = 0; i <row; i++){
 
@@ -78,7 +107,7 @@ function startGame(){
     for(var i = 0; i<moles.length; i++){
         moles[i].classList.add("mole"+i);
     }
-    moles.forEach(mole => mole.addEventListener('click', updateScore));
+    moles.forEach(mole => mole.addEventListener('click', whack));
     score = 0;
     
     popmole();
@@ -94,7 +123,6 @@ function startOver(){
 
 
 document.getElementById('startButton').addEventListener('click', ()=>{
-    console.log("adfad");
     startOver();
 });
 
