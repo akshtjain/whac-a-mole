@@ -1,5 +1,6 @@
 .bodyClass{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
+    background-color:#00cc66;
     padding: 0% 20% 0% 20%;
 }
 
@@ -8,12 +9,14 @@
     margin-bottom: 0px;
 }
 
+
+
 .gameArea{
-    background-color:#00cc66;
+    background-color:inherit;
     /* border-color: black; */
 
-    border:5px solid black;
-    border-radius: 3px;
+    /* border:5px solid black; */
+    /* border-radius: 3px; */
 
     padding-left: 20%;
     padding-right: 20%;
@@ -30,11 +33,24 @@
 
 
 .gameText{
-    display: flex;
+    /* display: flex; */
     align-items: center;
     text-align: center;
     justify-content: center;
+    font-family: 'Amatic SC', cursive;
     /* font-family: fantasy; */
+}
+
+.fontSize--75px{
+    font-size: 75px;
+}
+
+.fontSize--50px{
+    font-size: 50px;
+}
+
+.fontSize--30px{
+    font-size: 30px;
 }
 
 .score{
@@ -73,8 +89,11 @@ td{
     display: block;
 }
 
-#start{
+.alignment--center{
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 
 
@@ -83,6 +102,16 @@ td{
 }
 
 
-#gameOver{
+/* #gameOver{
     background-color: yellow;
+} */
+
+.gameButton{
+    background-color: yellow;
+    font-size: 25px;
+}
+
+
+.topScoreDialog{
+    border-style: solid;
 }
